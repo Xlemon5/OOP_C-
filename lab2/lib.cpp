@@ -92,9 +92,9 @@ vector<int> findColSumParal(const vector< vector<int> >& matrix) {
     int rows = matrix.size();
     int cols = matrix[0].size();
     vector<int> colSum(cols, 0);
-
+    omp_set_num_threads(NUM_THREADS);
     // Параллелизация внешнего цикла с динамическим распределением итераций
-#pragma omp parallel for schedule(dynamic)
+#pragma omp parallel for schedule(static)
     for (int j = 0; j < cols; ++j) {
         for (int i = 0; i < rows; ++i) {
             colSum[j] += matrix[i][j];

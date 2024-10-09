@@ -10,7 +10,7 @@ int main() {
     setlocale(LC_ALL, "ru");
     int rows, cols;
 
-    cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ñ€Ð°Ð·Ð¼ÐµÑ€Ð½Ð¾ÑÑ‚ÑŒ Ð¼Ð°Ñ‚Ñ€Ð¸Ñ†Ñ‹" << endl;
+    cout << "Ââåäèòå ðàçìåðíîñòü ìàòðèöû" << endl;
     cin >> rows >> cols;
 
     vector< vector<int> > matrix;
@@ -19,30 +19,30 @@ int main() {
     //printMatrix(matrix);
 
     cout << "------------------------" << endl;
-    // ÐŸÐ¾ÑÐ»ÐµÐ´Ð¾Ð²Ð°Ñ‚ÐµÐ»ÑŒÐ½Ð¾Ðµ Ð²Ñ‹Ñ‡Ð¸ÑÐ»ÐµÐ½Ð¸Ðµ
+    // Ïîñëåäîâàòåëüíîå âû÷èñëåíèå
     double time1 = omp_get_wtime();
     findRowSum(matrix);
     findColSum(matrix);
 
     double res1 = (omp_get_wtime() - time1);
-    //cout << "Ð’Ñ€ÐµÐ¼Ñ Ð²Ñ‹Ð¿Ð¾Ð»Ð½ÐµÐ½Ð¸Ñ Ð±ÐµÐ· Ñ€Ð°ÑÐ¿Ð°Ñ€Ð°Ð»Ð»ÐµÐ»Ð¸Ð²Ð°Ð½Ð¸Ñ: " << fixed << setprecision(10) << (omp_get_wtime() - time1) << " ms" << endl;
+    //cout << "Âðåìÿ âûïîëíåíèÿ áåç ðàñïàðàëëåëèâàíèÿ: " << fixed << setprecision(10) << (omp_get_wtime() - time1) << " ms" << endl;
 
     /*
-    cout << "Ð ÐµÐ·ÑƒÐ»ÑŒÑ‚Ð°Ñ‚Ñ‹: " << endl;
-    cout << "ÐŸÐ¾ ÑÑ‚Ñ€Ð¾ÐºÐ°Ð¼: " << endl;
+    cout << "Ðåçóëüòàòû: " << endl;
+    cout << "Ïî ñòðîêàì: " << endl;
     printVector(findRowSum(matrix));
-    cout << "ÐŸÐ¾ ÑÑ‚Ð¾Ð»Ð±Ñ†Ð°Ð¼: " << endl;
+    cout << "Ïî ñòîëáöàì: " << endl;
     printVector(findColSum(matrix));
     */
 
     cout << "------------------------" << endl;
-    // ÐŸÐ°Ñ€Ð°Ð»Ð»ÐµÐ»ÑŒÐ½Ð¾Ðµ Ð²Ñ‹Ñ‡Ð¸ÑÐ»ÐµÐ½Ð¸Ðµ
+    // Ïàðàëëåëüíîå âû÷èñëåíèå
     double time2 = omp_get_wtime();
     findRowSumParal(matrix);
     findColSumParal(matrix);
     
-    cout << "Ð’Ñ€ÐµÐ¼Ñ Ð²Ñ‹Ð¿Ð¾Ð»Ð½ÐµÐ½Ð¸Ñ Ð±ÐµÐ· Ñ€Ð°ÑÐ¿Ð°Ñ€Ð°Ð»Ð»ÐµÐ»Ð¸Ð²Ð°Ð½Ð¸Ñ: " << fixed << setprecision(10) << res1 << " ms" << endl;
-    cout << "Ð’Ñ€ÐµÐ¼Ñ Ð²Ñ‹Ð¿Ð¾Ð»Ð½ÐµÐ½Ð¸Ñ Ñ Ñ€Ð°ÑÐ¿Ð°Ñ€Ð°Ð»Ð»ÐµÐ»Ð¸Ð²Ð°Ð½Ð¸ÐµÐ¼:  " << fixed << setprecision(10) << (omp_get_wtime() - time2) << " ms" << endl;
+    cout << "Âðåìÿ âûïîëíåíèÿ áåç ðàñïàðàëëåëèâàíèÿ: " << fixed << setprecision(10) << res1 << " ms" << endl;
+    cout << "Âðåìÿ âûïîëíåíèÿ ñ ðàñïàðàëëåëèâàíèåì:  " << fixed << setprecision(10) << (omp_get_wtime() - time2) << " ms" << endl;
 
    
     
