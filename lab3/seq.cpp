@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <iomanip>
 #include <ctime>  // Для измерения времени
 #include <omp.h>
 #include "windows.h" 
@@ -19,7 +20,7 @@ void transform_points(std::vector<Point>& points, double offset_x, double offset
 int main() {
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
-    const int num_points = 1000000; // Количество точек
+    const int num_points = 100; // Количество точек
     std::vector<Point> points(num_points); // Создание вектора точек
 
 
@@ -37,7 +38,7 @@ int main() {
 
     double elapsed_time = double(end_time - start_time);// Время выполнения в секундах
 
-    std::cout << "Sequential Time: " << elapsed_time << " seconds\n";
+    std::cout << "Sequential Time: " << std::fixed << std::setprecision(6) << elapsed_time << " seconds\n";
 
     return 0;
 }
