@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <omp.h>  
-
+#define NUM_THREADS 8
 
 struct Point {
     double x, y, z;
@@ -10,7 +10,7 @@ struct Point {
 
 void transform_points_parallel(std::vector<Point>& points, double offset_x, double offset_y, double offset_z) {
     int num_points = points.size();
-
+    omp_set_num_threads(NUM_THREADS);
 #pragma omp parallel for
     for (int i = 0; i < num_points; ++i) {
         points[i].x += offset_x;
